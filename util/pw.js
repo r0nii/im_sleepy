@@ -1,5 +1,5 @@
 const status = "AUTOMATIC";
-const botName = "Music Bot ";
+const botName = "imsleepy";
 const version = "Latest@ v3.5"; 
 const startTime = Date.now();
 
