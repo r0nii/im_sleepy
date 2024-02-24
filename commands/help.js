@@ -30,38 +30,18 @@ module.exports = {
           { name: '/Ping', value: "Check the bot's latency" },
           { name: '/Clear', value: 'Clear the song queue of this server' },
           { name: '/Time', value: 'Display the current song playback time' },
-          { name: '/Queue', value: 'View and manage the song queue of this server' }
+          { name: '/Queue', value: 'View and manage the song queue of this server' },
         )
 
-      const basicCommandsEmbed = new EmbedBuilder()
-        .setColor(client.config.embedColor)
-        .setTitle('✨ **Basic Commands**')
-        .addFields(
-          { name: '🏓 Ping', value: "Check the bot's latency" },
-          { name: '🗑️ Clear', value: 'Clear the song queue of this server' },
-          { name: '⏱️ Time', value: 'Display the current song playback time' },
-          { name: '🎧 Filter', value: 'Apply filters to enhance the sound as you love' },
-           { name: '🎵 Now Playing', value: 'Display the currently playing song information' },
-          { name: '🔊 Volume', value: 'Adjust the music volume [ hearing at high volumes is risky ]' },
-        ) 
+
       
       const button1 = new ButtonBuilder()
         .setLabel('YouTube')
-        .setURL('https://www.youtube.com/channel/UCPbAvYWBgnYhliJa1BIrv0A')
-        .setStyle(ButtonStyle.Link);
-
-      const button2 = new ButtonBuilder()
-        .setLabel('Discord')
-        .setURL('https://discord.gg/FUEHs7RCqz')
-        .setStyle(ButtonStyle.Link);
-
-      const button3 = new ButtonBuilder()
-        .setLabel('Code')
-        .setURL('https://replit.com/@BEASTGAMERS1?tab=community')
+        .setURL('https://www.youtube.com')
         .setStyle(ButtonStyle.Link);
 
       const row = new ActionRowBuilder()
-        .addComponents(button1, button2, button3);
+        .addComponents(button1);
 
       interaction.reply({
         embeds: [musicCommandsEmbed, basicCommandsEmbed],
