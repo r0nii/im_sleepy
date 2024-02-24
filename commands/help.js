@@ -14,7 +14,7 @@ module.exports = {
     try {
       const musicCommandsEmbed = new EmbedBuilder()
         .setColor(client.config.embedColor)
-        .setTitle('🎸 **Music Commands**')
+        .setTitle('**Basic Commands**')
         .addFields(
           { name: '▶️/Play "name"', value: 'Search music by name' },
           { name: '▶️/Playsong normal "link"', value: 'Play youtube link' },
@@ -22,7 +22,12 @@ module.exports = {
           { name: '⏸️/Stop', value: 'Stops the music' },
           { name: '⏸️/Pause', value: 'Pause current playing song' },
           { name: '▶️/Resume', value: 'Resume the current paused song' },
-          { name: '🔁/Loop', value: 'Toggle loop' },
+          { name: '🔁/Loop', value: 'Toggle loop' }
+        )
+            const basicCommandsEmbed = new EmbedBuilder()
+        .setColor(client.config.embedColor)
+        .setTitle('**Others Commands**')
+        .addFields(
           { name: '⏩/Seek', value: 'Seek to a specific time in the current song' },
           { name: '⏮️/Previous', value: 'Play the previous song in the queue' },
           { name: '🔀/Shuffle', value: 'Shuffle the songs in queue' },
@@ -31,9 +36,7 @@ module.exports = {
           { name: '/Clear', value: 'Clear the song queue of this server' },
           { name: '/Time', value: 'Display the current song playback time' },
           { name: '/Queue', value: 'View and manage the song queue of this server' },
-        )
-
-
+        ) 
       
       const button1 = new ButtonBuilder()
         .setLabel('YouTube')
