@@ -28,9 +28,9 @@ module.exports = {
         .setColor(client.config.embedColor)
         .setTitle('**Others Commands**')
         .addFields(
-          { name: '⏩/Seek', value: 'Seek to a specific time in the current song' },
-          { name: '⏮️/Previous', value: 'Play the previous song in the queue' },
-          { name: '🔀/Shuffle', value: 'Shuffle the songs in queue' },
+          { name: '/Seek', value: 'Seek to a specific time in the current song' },
+          { name: '/Previous', value: 'Play the previous song in the queue' },
+          { name: '/Shuffle', value: 'Shuffle the songs in queue' },
           { name: '/Queue', value: 'View and manage the song queue of this server' },
           { name: '/Ping', value: "Check the bot's latency" },
           { name: '/Clear', value: 'Clear the song queue of this server' },
