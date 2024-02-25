@@ -48,7 +48,7 @@ module.exports = {
           .setAuthor({
         name: 'Volume settings',
     })
-          .setDescription(`**Adjusting Volume : ** **${vol}/${maxVol}**`);
+          .setDescription(`Adjusting Volume :  **${vol}/${maxVol}**`);
 
         return interaction.reply({ embeds: [embed] });
       } else {
