@@ -7,12 +7,12 @@ module.exports = {
   options: [
     {
       name: "normal",
-      description: "Open music from other platforms.",
+      description: "Use other platforms.",
       type: ApplicationCommandOptionType.Subcommand,
       options: [
         {
           name: "name",
-          description: "Write your music name.",
+          description: "Write a music name.",
           type: ApplicationCommandOptionType.String,
           required: true
         }
@@ -20,7 +20,7 @@ module.exports = {
     },
     {
       name: "playlist",
-      description: "Write your playlist name.",
+      description: "Write a playlist name.",
       type: ApplicationCommandOptionType.Subcommand,
       options: [
         {
@@ -121,13 +121,13 @@ module.exports = {
       if (stp === "normal") {
   const name = interaction.options.getString('name');
   if (!name) {
-    return interaction.reply({ content: '▶️ Give Text or link', ephemeral: true }).catch(e => {});
+    return interaction.reply({ content: 'Give Text or link', ephemeral: true }).catch(e => {});
   }
 
   const embed = new EmbedBuilder()
     .setColor('#3498db')
     .setColor('#FF0000')
-    .setDescription('**🎸 Get ready for a musical journey!**');
+    .setDescription('Picking up a Booze');
 
   await interaction.reply({ embeds: [embed] }).catch(e => {});
 
@@ -141,7 +141,7 @@ module.exports = {
     const errorEmbed = new EmbedBuilder()
       .setColor('#e74c3c')
       .setColor('#FF0000')
-      .setDescription('❌ No results found!!');
+      .setDescription('**NOTHING FOUND**');
 
     await interaction.editReply({ embeds: [errorEmbed], ephemeral: true }).catch(e => {});
   }
