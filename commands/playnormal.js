@@ -7,7 +7,7 @@ module.exports = {
   options: [
     {
       name: "normal",
-      description: "Use other platforms.",
+      description: "Play links from YT or other platforms",
       type: ApplicationCommandOptionType.Subcommand,
       options: [
         {
