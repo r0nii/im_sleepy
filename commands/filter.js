@@ -75,11 +75,11 @@ if(!filters?.includes(button?.customId)) return
       if (filters?.includes(filtre?.toLowerCase())) {
         if (queue?.filters?.has(filtre)) {
           queue?.filters?.remove(filtre)
-          embed?.setDescription(`Magic : **{filter}**, Applied Status: **{status}**`.replace("{filter}", filtre).replace("{status}", "❌"))
+          embed?.setDescription(`Magic : **{filter}**, Applied Status: **{status}**`.replace("{filter}", filtre).replace("{status}", "ERROR"))
           return interaction?.editReply({ embeds: [embed] }).catch(e => { })
         } else {
           queue?.filters?.add(filtre)
-          embed?.setDescription(`Magic : **{filter}**, Applied Status: **{status}**`.replace("{filter}", filtre).replace("{status}", "✅"))
+          embed?.setDescription(`Magic : **{filter}**, Applied Status: **{status}**`.replace("{filter}", filtre).replace("{status}", "Success"))
           return interaction?.editReply({ embeds: [embed] }).catch(e => { })
         }
       } else {
