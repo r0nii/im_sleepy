@@ -10,7 +10,7 @@ module.exports = {
     try {
 
      const queue = client.player.getQueue(interaction.guild.id);
-      if (!queue || !queue.playing) return interaction.reply({ content: 'Notihng playing', ephemeral: true }).catch(e => { })
+      if (!queue || !queue.playing) return interaction.reply({ content: 'Empty queue', ephemeral: true }).catch(e => { })
       if (!queue.songs[0]) return interaction.reply({ content: 'Empty Queue', ephemeral: true }).catch(e => { })
 
       const trackl = []
