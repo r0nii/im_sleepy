@@ -52,7 +52,7 @@ try {
 
   return interaction.reply({ embeds: [embed] });
 }catch (e) {
-          return interaction.reply({ content: 'Empty queue', ephemeral: true }).catch(e => { })
+          return interaction.reply({ content: 'Empty queue, skipping aborted', ephemeral: true }).catch(e => { })
         }
       }
 
