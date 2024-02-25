@@ -24,7 +24,7 @@ module.exports = {
       const embed = new EmbedBuilder()
         .setColor('#3498db')
         .setAuthor({
-          name: 'Cleared List',
+          name: 'Clearing...',
         })
         .setDescription('**Queue cleared!**')
        
