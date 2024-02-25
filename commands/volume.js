@@ -4,11 +4,11 @@ const db = require("../mongoDB");
 
 module.exports = {
   name: "volume",
-  description: "Allows you to adjust the music volume.",
+  description: "adjust bots audio volume.",
   permissions: "0x0000000000000800",
   options: [{
     name: 'volume',
-    description: 'Type the number to adjust the volume.',
+    description: 'adjust bots audio volume',
     type: ApplicationCommandOptionType.Integer,
     required: true
   }],
@@ -17,7 +17,7 @@ module.exports = {
     try {
       const queue = client.player.getQueue(interaction.guild.id);
       if (!queue || !queue.playing) {
-        return interaction.reply({ content: 'No music playing!!', ephemeral: true });
+        return interaction.reply({ content: 'Add a song and try again.', ephemeral: true });
       }
 
       const vol = parseInt(interaction.options.getInteger('volume'));
@@ -30,12 +30,12 @@ module.exports = {
       }
 
       if (queue.volume === vol) {
-        return interaction.reply({ content: 'Current volume is already set to **' + vol + '**!', ephemeral: true });
+        return interaction.reply({ content: 'Current volume: **' + vol + '**!', ephemeral: true });
       }
 
       if (vol < 1 || vol > maxVol) {
         return interaction.reply({
-          content: `Please type a number between \`1\` and \`${maxVol}\`.`,
+          content: `Choose a number between \`1\` and \`${maxVol}\`.`,
           ephemeral: true
         });
       }
@@ -46,13 +46,13 @@ module.exports = {
         const embed = new EmbedBuilder()
           .setColor('#d291fe')
           .setAuthor({
-        name: 'Your Music! Your Rules!',
+        name: 'Volume settings',
     })
           .setDescription(`**Adjusting Volume : ** **${vol}/${maxVol}**`);
 
         return interaction.reply({ embeds: [embed] });
       } else {
-        return interaction.reply({ content: 'Something went wrong', ephemeral: true });
+        return interaction.reply({ content: 'ERROR', ephemeral: true });
       }
     } catch (e) {
       console.error(e);
