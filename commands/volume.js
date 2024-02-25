@@ -4,7 +4,7 @@ const db = require("../mongoDB");
 
 module.exports = {
   name: "volume",
-  description: "adjust bots audio volume.",
+  description: "adjust bots audio volume",
   permissions: "0x0000000000000800",
   options: [{
     name: 'volume',
