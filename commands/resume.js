@@ -3,7 +3,7 @@ const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
   name: "resume",
-  description: "Start paused music.",
+  description: "Starts paused music",
   permissions: "0x0000000000000800",
   options: [],
   voiceChannel: true,
@@ -24,9 +24,9 @@ module.exports = {
       const embed = new EmbedBuilder()
         .setColor('#7645fe')
         .setAuthor({
-          name: 'Song Resumed',
+          name: 'Song resumed',
         })
-        .setDescription(success ? 'Resumed' : '**ERROR**')
+
         
 
       return interaction.reply({ embeds: [embed] });
