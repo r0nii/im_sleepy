@@ -12,11 +12,11 @@ module.exports = {
     
     try {
       if (!queue || !queue.playing) {
-        return interaction.reply({ content: 'No record plays', ephemeral: true });
+        return interaction.reply({ content: 'ERROR', ephemeral: true });
       }
 
       if (!queue.songs[0]) {
-        return interaction.reply({ content: 'Empty queue', ephemeral: true });
+        return interaction.reply({ content: 'ERROR', ephemeral: true });
       }
 
       await queue.stop(interaction.guild.id);
