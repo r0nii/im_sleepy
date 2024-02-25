@@ -8,12 +8,12 @@ module.exports = {
   run: async (client, interaction) => {
     try {
       const queue = client.player.getQueue(interaction.guild.id);
-      if (!queue || !queue.playing) return interaction.reply({ content: `⚠️ No music playing!!`, ephemeral: true }).catch(e => { })
+      if (!queue || !queue.playing) return interaction.reply({ content: `No music`, ephemeral: true }).catch(e => { })
       try {
         let song = await queue.previous()
         interaction.reply({ content: `**Behold, the enchanting melody of the past!!**` }).catch(e => { })
       } catch (e) {
-        return interaction.reply({ content: `❌ No previous track!!`, ephemeral: true }).catch(e => { })
+        return interaction.reply({ content: `ERROR`, ephemeral: true }).catch(e => { })
       }
     } catch (e) {
     console.error(e); 
