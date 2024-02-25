@@ -28,19 +28,19 @@ module.exports = {
       const forwardId = "emojiForward"
       const backButton = new ButtonBuilder({
         style: ButtonStyle.Secondary,
-        emoji: "⬅Back",
+        emoji: "⬅",
         customId: backId
       });
 
       const deleteButton = new ButtonBuilder({
         style: ButtonStyle.Secondary,
-        emoji: "close",
+        emoji: "❌",
         customId: "close"
       });
 
       const forwardButton = new ButtonBuilder({
         style: ButtonStyle.Secondary,
-        emoji: "Next➡",
+        emoji: "➡",
         customId: forwardId
       });
 
@@ -115,17 +115,17 @@ module.exports = {
           button = new ActionRowBuilder().addComponents(
             new ButtonBuilder()
               .setStyle(ButtonStyle.Secondary)
-              .setEmoji("⬅Back")
+              .setEmoji("⬅")
               .setCustomId(backId)
               .setDisabled(true),
             new ButtonBuilder()
               .setStyle(ButtonStyle.Secondary)
-              .setEmoji("close")
+              .setEmoji("❌")
               .setCustomId("close")
               .setDisabled(true),
             new ButtonBuilder()
               .setStyle(ButtonStyle.Secondary)
-              .setEmoji("Next➡")
+              .setEmoji("➡")
               .setCustomId(forwardId)
               .setDisabled(true))
 
