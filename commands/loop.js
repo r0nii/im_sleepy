@@ -22,7 +22,7 @@ module.exports = {
           .setStyle(ButtonStyle.Secondary)
           .setCustomId("nowplaying"),
         new ButtonBuilder()
-          .setLabel("Stop Loop!")
+          .setLabel("Stop Loop")
           .setStyle(ButtonStyle.Danger)
           .setCustomId("close")
       )
