@@ -48,12 +48,12 @@ module.exports = {
           switch (button.customId) {
             case 'queue':
               const success = queue.setRepeatMode(2);
-              interaction?.editReply({ content: `Looping queue!!` }).catch(e => { })
+              interaction?.editReply({ content: `Looping queue` }).catch(e => { })
               await button?.deferUpdate().catch(e => {})
               break
             case 'nowplaying':
               const success2 = queue.setRepeatMode(1);
-              interaction?.editReply({ content: `Looping song!!` }).catch(e => { })
+              interaction?.editReply({ content: `Looping song` }).catch(e => { })
               await button?.deferUpdate().catch(e => {})
               break
             case 'close':
