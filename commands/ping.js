@@ -11,7 +11,7 @@ module.exports = {
     try {
 
       const start = Date.now();
-      interaction.reply("Measuring...").then(msg => {
+      interaction.reply("Checking...").then(msg => {
         const end = Date.now();
         const embed = new EmbedBuilder()
           .setColor(`#6190ff`)
