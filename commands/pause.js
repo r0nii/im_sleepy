@@ -20,7 +20,7 @@ module.exports = {
       const embed = new EmbedBuilder()
         .setColor('#7645fe') 
         .setAuthor({
-          name: 'Song Paused',
+          name: 'Song Paused'
         })
         .setDescription(success ? 'Paused' : 'ERROR')
         
