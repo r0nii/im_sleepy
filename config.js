@@ -3,23 +3,16 @@ module.exports = {
   ownerID: ["1004206704994566164", ""],
   botInvite: "",
   supportServer: "",
-  mongodbURL: "mongodb+srv://shiva:shiva@musicbotyt.ouljywv.mongodb.net/?retryWrites=true&w=majority",
-  status: 'RTXX GG',
+  status: 'sleepy',
   commandsDir: './commands',
   language: "en",
   embedColor: "00fbff",
   errorLog: "",
 
-
-  sponsor: {
-    status: true,
-    url: "https://www.youtube.com/channel/UCPbAvYWBgnYhliJa1BIrv0A",
-  },
-
   voteManager: {
     status: false,
     api_key: "",
-    vote_commands: ["back", "channel", "clear", "dj", "filter", "loop", "nowplaying", "pause", "playnormal", "playlist", "queue", "resume", "save", "play", "skip", "stop", "time", "volume"],
+    vote_commands: ["back", "channel", "clear", "dj", "filter", "loop", "nowplaying", "pause", "playnormal", "playlist", "queue", "resume", "save", "play",  "skip", "stop", "time", "volume"],
     vote_url: "",
   },
 
