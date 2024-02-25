@@ -2,17 +2,17 @@ const { ApplicationCommandOptionType, EmbedBuilder } = require('discord.js');
 const db = require("../mongoDB");
 module.exports = {
   name: "playsong",
-  description: "Play a track.",
+  description: "Play a track",
   permissions: "0x0000000000000800",
   options: [
     {
       name: "normal",
-      description: "Open music from other platforms.",
+      description: "Play links from YT or other platforms",
       type: ApplicationCommandOptionType.Subcommand,
       options: [
         {
           name: "name",
-          description: "Write your music name.",
+          description: "Write a music name.",
           type: ApplicationCommandOptionType.String,
           required: true
         }
@@ -20,7 +20,7 @@ module.exports = {
     },
     {
       name: "playlist",
-      description: "Write your playlist name.",
+      description: "Write a playlist name.",
       type: ApplicationCommandOptionType.Subcommand,
       options: [
         {
@@ -44,7 +44,7 @@ module.exports = {
       if (stp === "playlist") {
         let playlistw = interaction.options.getString('name')
         let playlist = await db?.playlist?.find().catch(e => { })
-        if (!playlist?.length > 0) return interaction.reply({ content: `❌`, ephemeral: true }).catch(e => { })
+        if (!playlist?.length > 0) return interaction.reply({ content: `ERROR`, ephemeral: true }).catch(e => { })
 
         let arr = 0
         for (let i = 0; i < playlist.length; i++) {
@@ -55,14 +55,14 @@ module.exports = {
 
             if (playlist_owner_filter !== interaction.member.id) {
               if (playlist_public_filter === false) {
-                return interaction.reply({ content: `❌`, ephemeral: true }).catch(e => { })
+                return interaction.reply({ content: `ERROR`, ephemeral: true }).catch(e => { })
               }
             }
 
             const music_filter = playlist[i]?.musics?.filter(m => m.playlist_name === playlistw)
-            if (!music_filter?.length > 0) return interaction.reply({ content: `❌`, ephemeral: true }).catch(e => { })
+            if (!music_filter?.length > 0) return interaction.reply({ content: `ERROR`, ephemeral: true }).catch(e => { })
 
-            interaction.reply({ content: `❌` }).catch(e => { })
+            interaction.reply({ content: `ERROR` }).catch(e => { })
 
             let songs = []
             music_filter.map(m => songs.push(m.music_url))
@@ -74,7 +74,7 @@ module.exports = {
                 parallel: true
               });
 
-              await interaction.editReply({ content: `❌`.replace("{interaction.member.id}", interaction.member.id).replace("{music_filter.length}", music_filter.length) }).catch(e => { })
+              await interaction.editReply({ content: `ERROR`.replace("{interaction.member.id}", interaction.member.id).replace("{music_filter.length}", music_filter.length) }).catch(e => { })
 
               try {
                 await client.player.play(interaction.member.voice.channel, playl, {
@@ -83,7 +83,7 @@ module.exports = {
                   interaction
                 })
               } catch (e) {
-                await interaction.editReply({ content: `❌ No results found!!`, ephemeral: true }).catch(e => { })
+                await interaction.editReply({ content: `ERROR`, ephemeral: true }).catch(e => { })
               }
 
               playlist[i]?.playlist?.filter(p => p.name === playlistw).map(async p => {
@@ -112,7 +112,7 @@ module.exports = {
           } else {
             arr++
             if (arr === playlist.length) {
-              return interaction.reply({ content: `❌`, ephemeral: true }).catch(e => { })
+              return interaction.reply({ content: `ERROR`, ephemeral: true }).catch(e => { })
             }
           }
         }
@@ -121,13 +121,13 @@ module.exports = {
       if (stp === "normal") {
   const name = interaction.options.getString('name');
   if (!name) {
-    return interaction.reply({ content: '▶️ Give Text or link', ephemeral: true }).catch(e => {});
+    return interaction.reply({ content: 'Give Text or link', ephemeral: true }).catch(e => {});
   }
 
   const embed = new EmbedBuilder()
     .setColor('#3498db')
     .setColor('#FF0000')
-    .setDescription('**🎸 Get ready for a musical journey!**');
+    .setDescription('Picking up a Booze');
 
   await interaction.reply({ embeds: [embed] }).catch(e => {});
 
@@ -141,7 +141,7 @@ module.exports = {
     const errorEmbed = new EmbedBuilder()
       .setColor('#e74c3c')
       .setColor('#FF0000')
-      .setDescription('❌ No results found!!');
+      .setDescription('**NOTHING FOUND**');
 
     await interaction.editReply({ embeds: [errorEmbed], ephemeral: true }).catch(e => {});
   }
