@@ -4,7 +4,7 @@ module.exports = {
   botInvite: "",
   supportServer: "",
   mongodbURL: "mongodb+srv://shiva:shiva@musicbotyt.ouljywv.mongodb.net/?retryWrites=true&w=majority",
-  status: 'RTXX GG',
+  status: 'Sleepy',
   commandsDir: './commands',
   language: "en",
   embedColor: "00fbff",
@@ -19,7 +19,7 @@ module.exports = {
   voteManager: {
     status: false,
     api_key: "",
-    vote_commands: ["back", "channel", "clear", "dj", "filter", "loop", "nowplaying", "pause", "playnormal", "playlist", "queue", "resume", "save", "play", "skip", "stop", "time", "volume"],
+    vote_commands: ["back", "channel", "clear", "dj", "filter", "loop", "nowplaying", "pause", "playnormal", "playlist", "queue", "resume", "save", "play", "play2", "skip", "stop", "time", "volume"],
     vote_url: "",
   },
 
