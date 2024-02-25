@@ -11,7 +11,7 @@ module.exports = {
       if (!queue || !queue.playing) return interaction.reply({ content: `ERROR`, ephemeral: true }).catch(e => { })
       try {
         let song = await queue.previous()
-        interaction.reply({ content: `loading...` }).catch(e => { })
+        interaction.reply({ content: `` }).catch(e => { })
       } catch (e) {
         return interaction.reply({ content: `ERROR`, ephemeral: true }).catch(e => { })
       }
