@@ -30,9 +30,8 @@ module.exports = {
       const embed = new EmbedBuilder()
         .setColor('#fc4e03')
         .setAuthor({
-        name: 'Loop Your Melodies',
+        name: 'Loop settings',
     })
-        .setDescription('**Music loop**')
      
       interaction?.reply({ embeds: [embed], components: [button], fetchReply: true }).then(async Message => {
 
@@ -54,7 +53,7 @@ module.exports = {
               break
             case 'nowplaying':
               const success2 = queue.setRepeatMode(1);
-              interaction?.editReply({ content: `Looping activated!!` }).catch(e => { })
+              interaction?.editReply({ content: `Looping song!!` }).catch(e => { })
               await button?.deferUpdate().catch(e => {})
               break
             case 'close':
