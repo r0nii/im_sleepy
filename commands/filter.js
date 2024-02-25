@@ -74,11 +74,11 @@ if(!filters?.includes(button?.customId)) return
       if (filters?.includes(filtre?.toLowerCase())) {
         if (queue?.filters?.has(filtre)) {
           queue?.filters?.remove(filtre)
-          embed?.setDescription(`filters: **{filter}**, Applied Status: **{status}**`.replace("{filter}", filtre).replace("{status}", "ERROR"))
+          embed?.setDescription(`filters: **{filter}**, Applied Status: **{status}**`.replace("{filter}", filtre).replace("{status}", "OFF"))
           return interaction?.editReply({ embeds: [embed] }).catch(e => { })
         } else {
           queue?.filters?.add(filtre)
-          embed?.setDescription(`filters: **{filter}**, Applied Status: **{status}**`.replace("{filter}", filtre).replace("{status}", "Success"))
+          embed?.setDescription(`filters: **{filter}**, Applied Status: **{status}**`.replace("{filter}", filtre).replace("{status}", "ON"))
           return interaction?.editReply({ embeds: [embed] }).catch(e => { })
         }
       } else {
