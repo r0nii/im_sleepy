@@ -36,7 +36,7 @@ module.exports = {
 try {
   const queue = client.player.getQueue(interaction.guild.id);
   if (!queue || !queue.playing) {
-    return interaction.reply({ content: 'No music', ephemeral: true });
+    return interaction.reply({ content: 'Nothing to skip', ephemeral: true });
   }
 
   let old = queue.songs[0];
