@@ -12,7 +12,7 @@ module.exports = {
 
     try {
       if (!queue || !queue.playing) {
-        return interaction.reply({ content: 'No music', ephemeral: true });
+        return interaction.reply({ content: 'ERROR', ephemeral: true });
       }
 
       const success = queue.pause();
