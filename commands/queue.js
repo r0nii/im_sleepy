@@ -2,7 +2,7 @@ const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('
 const db = require("../mongoDB");
 module.exports = {
   name: "queue",
-  description: "shows the audio queue list.",
+  description: "shows the audio queue list",
   permissions: "0x0000000000000800",
   options: [],
   run: async (client, interaction) => {
