@@ -30,7 +30,7 @@ module.exports = {
       }
 
       if (queue.volume === vol) {
-        return interaction.reply({ content: 'Current volume: **' + vol + '**!', ephemeral: true });
+        return interaction.reply({ content: 'Current volume: **' + vol + '**', ephemeral: true });
       }
 
       if (vol < 1 || vol > maxVol) {
