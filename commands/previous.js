@@ -1,7 +1,7 @@
 const db = require("../mongoDB");
 module.exports = {
   name: "previous",
-  description: "Plays the previous track.",
+  description: "Plays the previous track",
   permissions: "0x0000000000000800",
   options: [],
   voiceChannel: true,
