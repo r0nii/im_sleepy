@@ -2,7 +2,7 @@ const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('
 const db = require("../mongoDB");
 module.exports = {
   name: "queue",
-  description: "It shows you the queue list.",
+  description: "shows the audio queue list.",
   permissions: "0x0000000000000800",
   options: [],
   run: async (client, interaction) => {
@@ -28,19 +28,19 @@ module.exports = {
       const forwardId = "emojiForward"
       const backButton = new ButtonBuilder({
         style: ButtonStyle.Secondary,
-        emoji: "⬅️",
+        emoji: "⬅Back",
         customId: backId
       });
 
       const deleteButton = new ButtonBuilder({
         style: ButtonStyle.Secondary,
-        emoji: "❌",
+        emoji: "close",
         customId: "close"
       });
 
       const forwardButton = new ButtonBuilder({
         style: ButtonStyle.Secondary,
-        emoji: "➡️",
+        emoji: "Next➡",
         customId: forwardId
       });
 
@@ -57,7 +57,7 @@ module.exports = {
           .setTitle(`${interaction.guild.name}  Queue`)
           .setThumbnail(interaction.guild.iconURL({ size: 2048, dynamic: true }))
           .setColor(client.config.embedColor)
-          .setDescription(`Now plawying: \`${queue.songs[0].name}\`
+          .setDescription(`Now playing: \`${queue.songs[0].name}\`
     ${current.map(data =>
             `\n\`${sayı++}\` | [${data.title}](${data.url}) | (Executed by <@${data.user.id}>)`
           )}`)
@@ -115,17 +115,17 @@ module.exports = {
           button = new ActionRowBuilder().addComponents(
             new ButtonBuilder()
               .setStyle(ButtonStyle.Secondary)
-              .setEmoji("⬅️")
+              .setEmoji("⬅Back")
               .setCustomId(backId)
               .setDisabled(true),
             new ButtonBuilder()
               .setStyle(ButtonStyle.Secondary)
-              .setEmoji("❌")
+              .setEmoji("close")
               .setCustomId("close")
               .setDisabled(true),
             new ButtonBuilder()
               .setStyle(ButtonStyle.Secondary)
-              .setEmoji("➡️")
+              .setEmoji("Next➡")
               .setCustomId(forwardId)
               .setDisabled(true))
 
