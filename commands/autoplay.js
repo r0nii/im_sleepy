@@ -18,7 +18,7 @@ module.exports = {
       const embed = new EmbedBuilder()
         .setColor('#2f58fe')
         .setTitle('dunno what it does but ok')
-        .setDescription(queue?.autoplay ? '**Autoplay ON**' : '**Autoplay OFF**')
+        .setDescription(queue?.autoplay ? 'Autoplay ON' : 'Autoplay OFF')
         
       
       interaction?.reply({ embeds: [embed] });
