@@ -59,7 +59,7 @@ module.exports = {
             case 'close':
               if (queue.repeatMode === 0) {
                 await button?.deferUpdate().catch(e => {})
-                return interaction?.editReply({ content: 'Looping Off', ephemeral: true }).catch(e => { })
+                return interaction?.editReply({ content: 'Looping Menu', ephemeral: true }).catch(e => { })
               }
               const success4 = queue.setRepeatMode(0);
               interaction?.editReply({ content: 'Looping Off' }).catch(e => { })
