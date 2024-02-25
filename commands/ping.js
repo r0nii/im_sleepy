@@ -15,7 +15,7 @@ module.exports = {
         const end = Date.now();
         const embed = new EmbedBuilder()
           .setColor(`#6190ff`)
-          .setTitle(`Bots Latency ${end - start}ms`)
+          .setTitle(`Bots Latency: ${end - start}ms`)
         return interaction.editReply({ embeds: [embed] }).catch(e => { });
       }).catch(err => { })
 
