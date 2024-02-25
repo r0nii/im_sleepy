@@ -22,7 +22,7 @@ module.exports = {
         .setAuthor({
           name: 'Song Paused',
         })
-        .setDescription(success ? 'Paused' : 'ERROR)
+        .setDescription(success ? 'Paused' : 'ERROR')
         
 
       return interaction.reply({ embeds: [embed] });
