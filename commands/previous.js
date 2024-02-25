@@ -8,7 +8,7 @@ module.exports = {
   run: async (client, interaction) => {
     try {
       const queue = client.player.getQueue(interaction.guild.id);
-      if (!queue || !queue.playing) return interaction.reply({ content: `No music`, ephemeral: true }).catch(e => { })
+      if (!queue || !queue.playing) return interaction.reply({ content: `ERROR`, ephemeral: true }).catch(e => { })
       try {
         let song = await queue.previous()
         interaction.reply({ content: `loading...` }).catch(e => { })
