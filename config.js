@@ -4,17 +4,11 @@ module.exports = {
   botInvite: "",
   supportServer: "",
   mongodbURL: "mongodb+srv://shiva:shiva@musicbotyt.ouljywv.mongodb.net/?retryWrites=true&w=majority",
-  status: 'RTXX GG',
+  status: 'Sleepy',
   commandsDir: './commands',
   language: "en",
   embedColor: "00fbff",
   errorLog: "",
-
-
-  sponsor: {
-    status: true,
-    url: "https://www.youtube.com/channel/UCPbAvYWBgnYhliJa1BIrv0A",
-  },
 
   voteManager: {
     status: false,
@@ -47,7 +41,7 @@ module.exports = {
 
     },
 
-    maxVol: 150,
+    maxVol: 175,
 
   }
 }
