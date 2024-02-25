@@ -3,7 +3,7 @@ const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
   name: "stop",
-  description: "Stops the music.",
+  description: "Stops the music",
   permissions: "0x0000000000000800",
   options: [],
   voiceChannel: true,
@@ -11,7 +11,7 @@ module.exports = {
     try {
       const queue = client.player.getQueue(interaction.guild.id);
       if (!queue || !queue.playing) {
-        return interaction.reply({ content: 'No music', ephemeral: true });
+        return interaction.reply({ content: 'ERROR', ephemeral: true });
       }
 
       queue.stop(interaction.guild.id);
@@ -19,9 +19,8 @@ module.exports = {
       const embed = new EmbedBuilder()
         .setColor('#f1002c')
         .setAuthor({
-          name: 'Music Stopped',
+          name: 'Bot stopped',
         })
-        .setDescription('stopped')
         
 
       return interaction.reply({ embeds: [embed] });
