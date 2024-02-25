@@ -53,7 +53,7 @@ module.exports = {
       let embed = new EmbedBuilder()
       .setColor('#01fe66')
       .setAuthor({
-          name: '**Audio Filters**',
+          name: 'Audio Filters',
         })
       
     interaction.reply({ embeds: [embed], components: [buttons, buttons2] }).then(async Message => {
