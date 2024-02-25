@@ -53,10 +53,9 @@ module.exports = {
       let embed = new EmbedBuilder()
       .setColor('#01fe66')
       .setAuthor({
-          name: 'Audio Filters ',
+          name: '**Audio Filters**',
         })
-      .setDescription('**Filters**')
-  
+      
     interaction.reply({ embeds: [embed], components: [buttons, buttons2] }).then(async Message => {
 
       const filter = i => i.user.id === interaction?.user?.id
