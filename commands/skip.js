@@ -2,11 +2,11 @@ const { ApplicationCommandOptionType, EmbedBuilder } = require('discord.js');
 const db = require("../mongoDB");
 module.exports = {
   name: "skip",
-  description: "Switches the music being played.",
+  description: "Skips current music",
   permissions: "0x0000000000000800",
   options: [{
     name: "number",
-    description: "mention how many songs you wanna skip",
+    description: "number of skips",
     type: ApplicationCommandOptionType.Number,
     required: false
   }],
@@ -45,9 +45,9 @@ try {
   const embed = new EmbedBuilder()
     .setColor('#3498db')
     .setAuthor({
-      name: 'Skipped',
+      name: 'Skipping',
     })
-    .setDescription(success ? ` **SKIPPED** : **${old.name}**` : 'Empty queue')
+    .setDescription(success ? ` skipped the : **${old.name}**` : 'Empty queue')
     .setTimestamp();
 
   return interaction.reply({ embeds: [embed] });
