@@ -42,7 +42,7 @@ module.exports = {
           if (button.user.id !== interaction.user.id) return
           const queue1 = client.player.getQueue(interaction.guild.id);
           if (!queue1 || !queue1.playing) {
-            await interaction?.editReply({ content: '**No music**', ephemeral: true }).catch(e => { })
+            await interaction?.editReply({ content: '**Nothing to loop**', ephemeral: true }).catch(e => { })
             await button?.deferUpdate().catch(e => {})
           }
           switch (button.customId) {
@@ -59,10 +59,10 @@ module.exports = {
             case 'close':
               if (queue.repeatMode === 0) {
                 await button?.deferUpdate().catch(e => {})
-                return interaction?.editReply({ content: 'Looping Menu', ephemeral: true }).catch(e => { })
+                return interaction?.editReply({ content: 'Looping menu', ephemeral: true }).catch(e => { })
               }
               const success4 = queue.setRepeatMode(0);
-              interaction?.editReply({ content: 'Looping Off' }).catch(e => { })
+              interaction?.editReply({ content: 'Looping menu timeout' }).catch(e => { })
               await button?.deferUpdate().catch(e => {})
               break
           }
