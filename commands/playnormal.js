@@ -1,12 +1,12 @@
 const { ApplicationCommandOptionType, EmbedBuilder } = require('discord.js');
 const db = require("../mongoDB");
 module.exports = {
-  name: "playsong",
+  name: "play",
   description: "Play a track",
   permissions: "0x0000000000000800",
   options: [
     {
-      name: "normal",
+      name: "nrm",
       description: "Play links from YT or other platforms",
       type: ApplicationCommandOptionType.Subcommand,
       options: [
@@ -118,7 +118,7 @@ module.exports = {
         }
       }
 
-      if (stp === "normal") {
+      if (stp === "nrm") {
   const name = interaction.options.getString('name');
   if (!name) {
     return interaction.reply({ content: 'Give Text or link', ephemeral: true }).catch(e => {});
