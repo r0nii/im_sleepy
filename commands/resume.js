@@ -16,7 +16,7 @@ module.exports = {
       }
 
       if (!queue.paused) {
-        return interaction.reply({ content: 'Nothing paused', ephemeral: true });
+        return interaction.reply({ content: 'ERROR', ephemeral: true });
       }
 
       const success = queue.resume();
@@ -26,7 +26,7 @@ module.exports = {
         .setAuthor({
           name: 'Song Resumed',
         })
-        .setDescription(success ? '**The music springs back to life!!**' : 'Error')
+        .setDescription(success ? 'Resumed' : '**ERROR**')
         
 
       return interaction.reply({ embeds: [embed] });
