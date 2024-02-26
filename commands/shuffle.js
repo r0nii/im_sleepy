@@ -13,7 +13,7 @@ module.exports = {
         if (!queue || !queue.playing) return interaction.reply({ content: `No music`, ephemeral: true }).catch(e => { })
         try {
           queue.shuffle(interaction)
-        return interaction.reply({ content: `<@${interaction.user.id}>, Queue Shuffled` }).catch(e => { })
+        return interaction.reply({ content: `Queue Shuffled` }).catch(e => { })
         } catch(err) {
         return interaction.reply({ content: `**${err}**` }).catch(e => { })
         }
