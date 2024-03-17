@@ -13,7 +13,7 @@ module.exports = {
   voiceChannel: true,
   run: async (client, interaction) => {
     
-    String namet=interaction.options.getString('string');
+    let namet=interaction.options.getString('string');
     try {
 		String tlumaczony = "";
 		for(int i= 0 ; i < namet.length() ; i++)
