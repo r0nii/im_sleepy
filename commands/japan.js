@@ -15,7 +15,7 @@ module.exports = {
     
     let namet=interaction.options.getString('string');
     try {
-		const String tlumaczony = new String("");
+		const tlumaczony = new String("");
 		for(int i= 0 ; i < namet.length() ; i++)
 		{
 			tlumaczony = tlumaczony + "." + namet[i];
