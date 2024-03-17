@@ -16,9 +16,11 @@ module.exports = {
     let namet=interaction.options.getString('string');
     try {
 		const tlumaczony = new String("");
-		for(int i= 0 ; i < namet.length() ; i++)
+		let zmien = new int(0);
+		while( zmien < namet.length() )
 		{
 			tlumaczony = tlumaczony + "." + namet[i];
+			zmien++;
 		}
 
   const embed = new EmbedBuilder()
@@ -36,4 +38,3 @@ module.exports = {
   }
   },
 };
-
