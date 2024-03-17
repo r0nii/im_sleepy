@@ -19,7 +19,7 @@ module.exports = {
 		let zmien = new int(0);
 		while( zmien < namet.length() )
 		{
-			tlumaczony = tlumaczony + "." + namet[i];
+			tlumaczony = tlumaczony + "." + namet[zmien];
 			zmien++;
 		}
 
