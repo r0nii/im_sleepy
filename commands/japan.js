@@ -14,7 +14,7 @@ module.exports = {
   run: async (client, interaction) => {
     
     let namet=interaction.options.getString('string');
-    try {
+    /*try {
 		const tlumaczony = new String("");
 		let zmien = 0;
 		while( zmien < namet.length() )
@@ -22,13 +22,13 @@ module.exports = {
 			tlumaczony = tlumaczony + "." + namet[zmien];
 			zmien++;
 		}
-
+*/
   const embed = new EmbedBuilder()
     .setColor('#3498db')
     .setAuthor({
       name: 'translating',
     })
-    .setDescription(` before translation : **${namet}**, after **${tlumaczony}**`);
+    .setDescription(` before translation : **${namet}**`);
 
   return interaction.reply({ embeds: [embed] });
 
