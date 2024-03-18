@@ -14,7 +14,7 @@ module.exports = {
   run: async (client, interaction) => {
     
     let namet=interaction.options.getString('string');
-    /*try {
+try {/*
 		const tlumaczony = new String("");
 		let zmien = 0;
 		while( zmien < namet.length() )
