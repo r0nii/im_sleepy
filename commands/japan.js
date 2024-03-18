@@ -1,5 +1,32 @@
 const { ApplicationCommandOptionType, EmbedBuilder } = require('discord.js');
 const db = require("../mongoDB");
+function translate_to_japan(words_to_translate)
+{
+	//if(typeof worlds_to_translate != typeof String )
+	//throw "translate_to_japan(String) error: given argument is not a" + typeof(String) +", but " + typeof(worlds_to_translate) ;
+	console.log("a");
+	console.log(words_to_translate);
+	 const cheat_sheet = ["ka", "zu", "mi", "te", "ku", "lu", "Ji", "Ri", "Ki", "ZU", "me", "Ta", "Rin", "To", "Mo", "NO", "ke", "shi", "Ari", "chi", "do", "ru", "mei", "Na", "fu", "z"];
+	    let tlumaczony = "";
+	 [...words_to_translate].forEach(character => {
+	        let tmp = character.charCodeAt(0);
+			//ustalam ze duze litery tlumacze tak samo jak male
+	        if(tmp >= 'A'.charCodeAt(0) && tmp <= 'Z'.charCodeAt(0))
+	            tmp = (tmp - 'A'.charCodeAt(0)) + 'a'.charCodeAt(0);
+			//sprawdzam czy znak to litera
+			if(tmp >= 'a'.charCodeAt(0) && tmp <= 'z'.charCodeAt(0)){
+				tlumaczony = tlumaczony + cheat_sheet[tmp-'a'.charCodeAt(0)];
+			    console.log(tmp-'a'.charCodeAt(0));
+			    
+			}
+			//jesli nie to nie zmieniam
+			else
+				tlumaczony = tlumaczony + tmp;
+	 }
+	 )
+	 return tlumaczony;
+}
+
 module.exports = {
   name: "japan",
   description: "translates to japan",
@@ -13,40 +40,14 @@ module.exports = {
   voiceChannel: true,
   run: async (client, interaction) => {
     
-    //pobieram podana opcje do zmiennej namet
-    let namet=interaction.options.getString('string');
-    //tworze slownik do tlumaczenia  cheat_sheet, gdzie 'a' = cheat_sheet[0], 'b' = cheat_sheet[1], etc...
-    const String cheat_sheet[] = {"ka", "zu", "mi", "te", "ku", "lu", "Ji", "Ri", "Ki", "ZU","me", "Ta", "Rin", "To", "Mo", "NO", "ke", "shi", "Ari", "chi", "do", "ru", "mei", "Na", "fu", "z"}; 
-    try {
-		const tlumaczony = new String("");
-		//uposledzone for( int zmienna = 0 ; zmienna< namet.length() ; zmienna ++ ), moze "for_each"
-		let zmien = new int(0);
-		//dla kazdego znaku w tlumaczonym slowie...
-		while( zmien < namet.length() )
-		{
-			char tmp = namet[i];
-			//ustalam ze duze litery tlumacze tak samo jak male
-			if(tmp >= 'A' && tmp <= 'Z')
-			{
-				tmp = (tmp - 'A') + 'a';
-			}
-			//sprawdzam czy znak to litera
-			if(tmp >= 'a' && tmp <= 'z')
-				tlumaczony = tlumaczony + cheat__sheet[tmp-'a'];
-			//jesli nie to nie zmieniam
-			else
-				tlumaczony = tlumaczony +  tmp;
-			//ide do nastepnego znaku
-			zmien++;
-		}
-
+   let tlumaczony = translate_to_japan(interaction.options.getString('string'));
 	//jakas odpowiedz 
   const embed = new EmbedBuilder()
     .setColor('#3498db')
     .setAuthor({
       name: 'translating',
     })
-    .setDescription(` before translation : **${namet}**, after **${tlumaczony}**`);
+    .setDescription(` after translation **${tlumaczony}**`);
 
   return interaction.reply({ embeds: [embed] });
 
