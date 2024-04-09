@@ -1,4 +1,5 @@
 const randomAnime = require("random-anime");
+const db = require("../mongoDB");
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
