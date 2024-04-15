@@ -30,7 +30,7 @@ client.player = new DisTube(client, {
     new DeezerPlugin(),
   ],
 });
-
+process.env.YTDL_NO_UPDATE = true;
 const player = client.player;
 
 fs.readdir("./events", (_err, files) => {
@@ -90,11 +90,11 @@ if(config.mongodbURL || process.env.MONGO){
   useNewUrlParser: true,
   useUnifiedTopology: true,
   }).then(async () => {
-    console.log('\x1b[32m%s\x1b[0m', `|    Connected`)
+    console.log('\x1b[32m%s\x1b[0m', `Connected`)
   }).catch((err) => {
-    console.log('\x1b[32m%s\x1b[0m', `|    Failed to connect`)})
+    console.log('\x1b[32m%s\x1b[0m', `Connection Failed`)})
   } else {
-  console.log('\x1b[32m%s\x1b[0m', `|    Error`)
+  console.log('\x1b[32m%s\x1b[0m', `MongoDB Error`)
   }
 
 
@@ -106,6 +106,6 @@ app.get('/', (req, res) => {
   res.sendFile(imagePath);
 });
 app.listen(port, () => {
-  console.log(`Listening to: http://localhost:${port}`);
+  console.log(`Listening to test: http://localhost:${port}`);
 });
 printWatermark();
