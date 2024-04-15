@@ -2,17 +2,17 @@ const { ApplicationCommandOptionType, EmbedBuilder } = require('discord.js');
 const db = require("../mongoDB");
 module.exports = {
   name: "playsong",
-  description: "Play a track",
+  description: "Play track.",
   permissions: "0x0000000000000800",
   options: [
     {
       name: "normal",
-      description: "use other platforms (YT)",
+      description: "use other platforms",
       type: ApplicationCommandOptionType.Subcommand,
       options: [
         {
           name: "name",
-          description: "Write a music name",
+          description: "Write your music name",
           type: ApplicationCommandOptionType.String,
           required: true
         }
@@ -20,7 +20,7 @@ module.exports = {
     },
     {
       name: "playlist",
-      description: "Write a playlist name",
+      description: "Write playlist name",
       type: ApplicationCommandOptionType.Subcommand,
       options: [
         {
@@ -55,14 +55,16 @@ module.exports = {
 
             if (playlist_owner_filter !== interaction.member.id) {
               if (playlist_public_filter === false) {
-                return interaction.reply({ content: `ERROR`, ephemeral: true }).catch(e => { })
+                return interaction.reply({ content: `Denied`, ephemeral: true }).catch(e => { })
               }
             }
 
             const music_filter = playlist[i]?.musics?.filter(m => m.playlist_name === playlistw)
-            if (!music_filter?.length > 0) return interaction.reply({ content: `ERROR`, ephemeral: true }).catch(e => { })
-
-            interaction.reply({ content: `ERROR` }).catch(e => { })
+            if (!music_filter?.length > 0) return interaction.reply({ content: `Nothing found`, ephemeral: true }).catch(e => { })
+                const listembed = new EmbedBuilder()
+                .setTitle('Loading...')
+                .setColor('#FF0000')
+            interaction.reply({ content : '', embeds: [listembed] }).catch(e => { })
 
             let songs = []
             music_filter.map(m => songs.push(m.music_url))
@@ -73,8 +75,14 @@ module.exports = {
                 properties: { name: playlistw, source: "custom" },
                 parallel: true
               });
-
-              await interaction.editReply({ content: `ERROR`.replace("{interaction.member.id}", interaction.member.id).replace("{music_filter.length}", music_filter.length) }).catch(e => { })
+              const qembed = new EmbedBuilder()
+        .setAuthor({
+        name: 'Album added to Queue',
+    })
+           
+              await interaction.editReply({ content: '',embeds: [qembed] }).catch(e => {
+                  console.error('Error', e);
+                });
 
               try {
                 await client.player.play(interaction.member.voice.channel, playl, {
@@ -83,7 +91,7 @@ module.exports = {
                   interaction
                 })
               } catch (e) {
-                await interaction.editReply({ content: `ERROR`, ephemeral: true }).catch(e => { })
+                await interaction.editReply({ content: `Failed`, ephemeral: true }).catch(e => { })
               }
 
               playlist[i]?.playlist?.filter(p => p.name === playlistw).map(async p => {
@@ -112,7 +120,7 @@ module.exports = {
           } else {
             arr++
             if (arr === playlist.length) {
-              return interaction.reply({ content: `ERROR`, ephemeral: true }).catch(e => { })
+              return interaction.reply({ content: `Nothing found`, ephemeral: true }).catch(e => { })
             }
           }
         }
@@ -125,9 +133,6 @@ module.exports = {
   }
 
   const embed = new EmbedBuilder()
-    .setColor('#3498db')
-    .setColor('#FF0000')
-    .setDescription('Picking up a Booze');
 
   await interaction.reply({ embeds: [embed] }).catch(e => {});
 
@@ -139,17 +144,15 @@ module.exports = {
     });
   } catch (e) {
     const errorEmbed = new EmbedBuilder()
-      .setColor('#e74c3c')
       .setColor('#FF0000')
-      .setDescription('**ERROR**');
+      .setDescription('Nothing found');
 
     await interaction.editReply({ embeds: [errorEmbed], ephemeral: true }).catch(e => {});
   }
 }
 
-    } catch (e) {
-      const errorNotifer = require("../functions.js")
-      errorNotifer(client, interaction, e, pint)
-    }
+    }  catch (e) {
+    console.error(e); 
+  }
   },
 };
