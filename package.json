@@ -1,11 +1,11 @@
 {
     "name": "I'm sleepy",
-    "main": "index.js",
+    "main": "main.js",
     "author": "r0nii",
     "version": "2.0.0",
     "description": "Music bot",
     "scripts": {
-        "start": "node src/index.js"
+        "start": "node main.js"
     },
     "dependencies": {
         "@discord-player/extractor": "^4.3.1",
