@@ -8,7 +8,7 @@ module.exports = {
     let reg = /<([^>]+)>/g;
 
     if (!translate) {
-      console.warn("❌ No translation module detected! ❌");
+      console.warn("No translation module detected!");
       output = getUnchangedText(text);
       return output;
     }
@@ -18,7 +18,7 @@ module.exports = {
 
     if (!text || !lang)
       throw new Error(
-        "❌ You must provide a text and a language code to translate! ❌"
+        "You must provide a text and a language code to translate!"
       );
 
     if (lang === "en") {
@@ -35,7 +35,7 @@ module.exports = {
                 if(wait_time){
                   const timeout = new Promise((resolve, reject) => {
                     setTimeout(() => {
-                      reject(new Error('❗ TimeoutRaisedError: The Translation took too long to complete! Skipping... ❗'))}, wait_time);
+                      reject(new Error('❗ TimeoutRaisedError: The Translation took too long to complete! Skipping...'))}, wait_time);
                   })
                   Tranlate_buff = await Promise.race([translate(str, lang), timeout]);
                 } else{
@@ -51,7 +51,7 @@ module.exports = {
               console.clear()
 
             genConfigError('app', 'lang', 
-            `❌ An invalid language was inserted in the config file. Please check the language code! ❌
+            `An invalid language was inserted in the config file. Please check the language code!
             \t\t\tchange the language code in the config.js file\n`);  
             }
           } else {
@@ -71,7 +71,7 @@ module.exports = {
       translate = module.default || module;
     } catch (e) {
       throw new Error(
-        `❌ The translate module could not load properly. Please contact an Developers ❌ \n\n\nError:${e}`
+        `The translate module could not load properly. Please contact an Developers \n\n\nError:${e}`
       );
     }
   },
@@ -99,10 +99,10 @@ function genConfigError(dict = 'app', key = 'token', error = '') {
     let config = require("./config");
 
     if(!config[dict]){
-      throw new Error(`\n\n❌ The ${dict} object is incorrect or does not exist in the config file! ❌\n\n`);
+      throw new Error(`\n\n The ${dict} object is incorrect or does not exist in the config file! \n\n`);
     }
     if(!config[dict][key]){
-      throw new Error(`\n\n❌ The ${key} key is incorrect or does not exist in the ${dict} object in the config file! ❌\n\n`);
+      throw new Error(`\n\n The ${key} key is incorrect or does not exist in the ${dict} object in the config file! \n\n`);
     }
 
     (async() => {
