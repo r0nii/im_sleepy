@@ -34,7 +34,7 @@ client.login(client.config.app.token).catch(async (e) => {
 
 const express = require("express");
 const app = express();
-const port = 0.0.0.0;
+const port = 7680;
 
 app.listen(port, () => {
   console.log(`Listening to: http://localhost:${port}`);
