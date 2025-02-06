@@ -4,7 +4,7 @@ const { Translate } = require('../../process_tools');
 
 module.exports = {
     name: 'play',
-    description:("Play a song"),
+    description:("Play a song!"),
     voiceChannel: true,
     options: [
         {
@@ -27,7 +27,7 @@ module.exports = {
         let defaultEmbed = new EmbedBuilder().setColor('#2f3136');
 
         if (!res?.tracks.length) {
-            defaultEmbed.setAuthor({ name: await Translate(`404`) });
+            defaultEmbed.setAuthor({ name: await Translate(`No results found... try again`) });
             return inter.editReply({ embeds: [defaultEmbed] });
         }
 
@@ -45,11 +45,11 @@ module.exports = {
                 }
             });
 
-            defaultEmbed.setAuthor({ name: await Translate(`queuing <${track.title}>`) });
+            defaultEmbed.setAuthor({ name: await Translate(`Loading <${track.title}> to the queue...`) });
             await inter.editReply({ embeds: [defaultEmbed] });
         } catch (error) {
             console.log(`Play error: ${error}`);
-            defaultEmbed.setAuthor({ name: await Translate(`401`) });
+            defaultEmbed.setAuthor({ name: await Translate(`I can't join the voice channel`) });
             return inter.editReply({ embeds: [defaultEmbed] });
         }
     }
