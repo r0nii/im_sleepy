@@ -34,11 +34,8 @@ client.login(client.config.app.token).catch(async (e) => {
 
 const express = require("express");
 const app = express();
-const port = 3000;
-app.get('/', (req, res) => {
-  const imagePath = path.join(__dirname, 'index.html');
-  res.sendFile(imagePath);
-});
+const port = 0.0.0.0;
+
 app.listen(port, () => {
   console.log(`Listening to: http://localhost:${port}`);
 });
